@@ -16,7 +16,7 @@ const Login = () => {
       <Paper elevation={3} style={{ padding: 20, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Typography variant="h5">Login</Typography>
         <TextField
-          label="Username"
+          label="Usernames"
           variant="outlined"
           margin="normal"
           fullWidth
