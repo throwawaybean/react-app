@@ -2,52 +2,53 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-/**
- * Uses Tailwind CSS for styling
- * Tailwind file is imported in App.css
- */
-
 export default function App() {
   return (
-    <div className="app min-h-screen text-blue-200 flex items-center flex-col p-20">
-      <div className="mb-10 grid grid-cols-4 grid-rows-2 w-1/2 mx-auto">
-        <img className="opacity-25" src={logo} alt="React Logo" width="300" />
-        <img
-          className="col-span-2 row-span-3 animate-spin m-auto"
-          style={{ animationDuration: "30s" }}
-          src={logo}
-          alt="React Logo"
-          width="300"
-        />
-        <img className="opacity-25" src={logo} alt="React Logo" width="300" />
-        <img className="opacity-25" src={logo} alt="React Logo" width="300" />
-        <img className="opacity-25" src={logo} alt="React Logo" width="300" />
-      </div>
+    <div className="app min-h-screen bg-gray-800 text-white">
+      <header className="p-4">
+        <img className="opacity-75" src={logo} alt="React Logo" width="50" />
+        <h1 className="text-2xl lg:text-4xl ml-2">Admin Panel</h1>
+      </header>
 
-      <h1 className="text-2xl lg:text-5xl mb-10 text-right">
-        Welcome to Your New React Appsss{" "}
-        <span className="block text-lg text-blue-400">on DigitalOcean</span>
-      </h1>
+      <main className="flex flex-col items-center justify-center h-full">
+        <div className="mb-10 grid grid-cols-3 w-1/2 mx-auto">
+          <img className="opacity-25" src={logo} alt="React Logo" width="150" />
+          <img
+            className="col-span-2 row-span-2 animate-spin m-auto"
+            style={{ animationDuration: "30s" }}
+            src={logo}
+            alt="React Logo"
+            width="150"
+          />
+          <img className="opacity-25" src={logo} alt="React Logo" width="150" />
+        </div>
 
-      <div className="grid grid-cols-2 grid-rows-2 gap-4">
-        <Button
-          text="DigitalOcean Docs"
-          url="https://www.digitalocean.com/docs/app-platform"
-        />
-        <Button
-          text="DigitalOcean Dashboard"
-          url="https://cloud.digitalocean.com/apps"
-        />
-      </div>
+        <h1 className="text-2xl lg:text-4xl mb-6">Welcome, Admin!</h1>
+
+        <div className="grid grid-cols-2 gap-4">
+          <AdminButton
+            text="User Management"
+            url="#"
+            bgColor="bg-blue-500"
+            hoverColor="hover:bg-blue-400"
+          />
+          <AdminButton
+            text="Settings"
+            url="#"
+            bgColor="bg-green-500"
+            hoverColor="hover:bg-green-400"
+          />
+        </div>
+      </main>
     </div>
   );
 }
 
-function Button({ className, text, url = "#" }) {
+function AdminButton({ text, url = "#", bgColor, hoverColor }) {
   return (
     <a
       href={url}
-      className={`${className} py-3 px-6 bg-purple-400 hover:bg-purple-300 text-purple-800 hover:text-purple-900 block rounded text-center shadow flex items-center justify-center leading-snug text-xs transition ease-in duration-150`}
+      className={`py-3 px-6 ${bgColor} ${hoverColor} text-white block rounded text-center shadow hover:shadow-md hover:cursor-pointer leading-snug text-sm transition ease-in duration-150`}
     >
       {text}
     </a>
